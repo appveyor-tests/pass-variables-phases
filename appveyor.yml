@@ -78,14 +78,6 @@ before_deploy:
   - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
   - sh: if [[ -z "${SH_BEFORE_DEPLOY-}" || "${#SH_BEFORE_DEPLOY}" = "0" ]]; then echo "SH_BEFORE_DEPLOY is not set!"; exit 1; fi
 
-deploy:
-  release: pass-variables-phases-v$(appveyor_build_version)
-  description: 'SH_BEFORE_DEPLOY $(SH_BEFORE_DEPLOY)'
-  provider: GitHub
-  auth_token:
-    secure: $(github_token)
-  artifact: artifact.txt
-  
 after_deploy:
   - sh: SH_AFTER_DEPLOY=isset
   - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
