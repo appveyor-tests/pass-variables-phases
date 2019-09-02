@@ -60,7 +60,6 @@ after_test:
   - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
   - sh: if [[ -z "${SH_TEST_SCRIPT-}" || "${#SH_TEST_SCRIPT}" = "0" ]]; then echo "SH_TEST_SCRIPT is not set!"; exit 1; fi
   - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
-  - sh: if [[ -z "${FOO-}" || "${#FOO}" = "0" ]]; then echo "FOO is not set!"; exit 1; fi
 
 before_deploy:
   - sh: SH_BEFORE_DEPLOY=isset
