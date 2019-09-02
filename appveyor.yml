@@ -85,5 +85,5 @@ after_deploy:
   - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
   - sh: if [[ -z "${SH_BEFORE_DEPLOY-}" || "${#SH_BEFORE_DEPLOY}" = "0" ]]; then echo "SH_BEFORE_DEPLOY is not set!"; exit 1; fi
   - sh: if [[ -z "${SH_AFTER_DEPLOY-}" || "${#SH_AFTER_DEPLOY}" = "0" ]]; then echo "SH_AFTER_DEPLOY is not set!"; exit 1; fi
-
+  - sh: if [[ -z "${FOO-}" || "${#FOO}" = "0" ]]; then echo "FOO is not set!"; exit 1; fi
 
