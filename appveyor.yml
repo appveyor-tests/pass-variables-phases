@@ -1,0 +1,89 @@
+init:
+  - appveyor version
+  - git --version
+  - ps: 'Write-Host "APPVEYOR_BUILD_WORKER_IMAGE: $env:APPVEYOR_BUILD_WORKER_IMAGE"'
+  - ps: 'Write-Host "APPVEYOR_BUILD_WORKER_CLOUD: $env:APPVEYOR_BUILD_WORKER_CLOUD"'
+  - sh: SH_INIT=isset
+  
+install:
+  - sh: SH_INSTALL=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+
+before_build:
+  - sh: SH_BEFORE_BUILD=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+
+build_script:
+  - sh: SH_BUILD_SCRIPT=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+
+after_build:
+  - sh: SH_AFTER_BUILD=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+
+before_test:
+  - sh: SH_BEFORE_TEST=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
+
+test_script:
+  - sh: SH_TEST_SCRIPT=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_TEST_SCRIPT-}" || "${#SH_TEST_SCRIPT}" = "0" ]]; then echo "SH_TEST_SCRIPT is not set!"; exit 1; fi
+
+after_test:
+  - sh: SH_AFTER_TEST=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_TEST_SCRIPT-}" || "${#SH_TEST_SCRIPT}" = "0" ]]; then echo "SH_TEST_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
+
+before_deploy:
+  - sh: SH_BEFORE_DEPLOY=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_TEST_SCRIPT-}" || "${#SH_TEST_SCRIPT}" = "0" ]]; then echo "SH_TEST_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_DEPLOY-}" || "${#SH_BEFORE_DEPLOY}" = "0" ]]; then echo "SH_BEFORE_DEPLOY is not set!"; exit 1; fi
+
+after_deploy:
+  - sh: SH_AFTER_DEPLOY=isset
+  - sh: if [[ -z "${SH_INIT-}" || "${#SH_INIT}" = "0" ]]; then echo "SH_INIT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_INSTALL-}" || "${#SH_INSTALL}" = "0" ]]; then echo "SH_INSTALL is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_BUILD-}" || "${#SH_BEFORE_BUILD}" = "0" ]]; then echo "SH_BEFORE_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BUILD_SCRIPT-}" || "${#SH_BUILD_SCRIPT}" = "0" ]]; then echo "SH_BUILD_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_BUILD-}" || "${#SH_AFTER_BUILD}" = "0" ]]; then echo "SH_AFTER_BUILD is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_TEST-}" || "${#SH_BEFORE_TEST}" = "0" ]]; then echo "SH_BEFORE_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_TEST_SCRIPT-}" || "${#SH_TEST_SCRIPT}" = "0" ]]; then echo "SH_TEST_SCRIPT is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_TEST-}" || "${#SH_AFTER_TEST}" = "0" ]]; then echo "SH_AFTER_TEST is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_BEFORE_DEPLOY-}" || "${#SH_BEFORE_DEPLOY}" = "0" ]]; then echo "SH_BEFORE_DEPLOY is not set!"; exit 1; fi
+  - sh: if [[ -z "${SH_AFTER_DEPLOY-}" || "${#SH_AFTER_DEPLOY}" = "0" ]]; then echo "SH_AFTER_DEPLOY is not set!"; exit 1; fi
+
+
